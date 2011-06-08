@@ -44,8 +44,6 @@ require 'htmlentities'
 gem 'addressable', ">= 1.0.4"
 require 'addressable/uri'
 
-gem 'rchardet', ">=1.0"
-require 'rchardet'
 $chardet = true
 
 $debug = false
