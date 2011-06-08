@@ -203,10 +203,12 @@ module FeedParserUtilities
   module_function(:SanitizerDoc)
 
   def sanitizeHTML(html,encoding)
+    html.gsub(/<!((?!DOCTYPE|--|\[))/, '&lt;!\1').strip
+    # FIXME Hpricot 0.8 is different and this doesn't work
     # FIXME Tidy not yet supported
-    html = html.gsub(/<!((?!DOCTYPE|--|\[))/, '&lt;!\1')
-    h = SanitizerDoc(html)
-    h = h.scrub
-    return h.strip
+    # html = html.gsub(/<!((?!DOCTYPE|--|\[))/, '&lt;!\1')
+    # h = SanitizerDoc(html)
+    # h = h.scrub
+    # return h.strip
   end
 end
